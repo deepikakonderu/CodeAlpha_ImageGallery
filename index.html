@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Image Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Animated Core Background Mesh -->
+  <div class="bg-mesh">
+    <div class="mesh-orb orb-1"></div>
+    <div class="mesh-orb orb-2"></div>
+    <div class="mesh-orb orb-3"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="glass-nav">
+    <div class="logo"><span>Image</span>Gallery</div>
+    <div class="nav-links">
+      <a href="#" class="nav-link-item">Home</a>
+      <a href="#gallery-section" id="explore-link" class="nav-link-item">Explore</a>
+      <a href="#filters" id="collections-link" class="nav-link-item">Collections</a>
+      <button class="action-btn upload-trigger" id="open-upload">
+        <i class="fa-solid fa-plus"></i> <span>Upload</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="badge">Portfolio & Gallery Engine</div>
+        <h1>Curate Your <span class="gradient-text">Visual Masterpieces</span></h1>
+        <p>A cinematic canvas built for photographers and creators. Upload raw moments, track clean custom filters, and archive high-fidelity content effortlessly.</p>
+        <div class="hero-actions">
+          <button class="action-btn" id="hero-explore">Explore Gallery</button>
+          <button class="ghost-btn" id="watch-preview">
+            <span class="play-icon-box"><i class="fa-solid fa-play"></i></span>
+            <span>Watch Showreel</span>
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="card-frame-wrapper">
+          <div class="card-frame">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Hero Masterpiece">
+            <div class="frame-reflection"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROLS & FILTER SECTION -->
+  <section class="controls-wrapper" id="filters">
+    <div class="section-header">
+      <h2>Curated Collections</h2>
+      <p>Filter visual data through runtime classification tags</p>
+    </div>
+    <div class="filter-pills-container">
+      <div class="filters" id="filters-row">
+        <button class="filter-pill active" data-filter="all">All Architecture</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODERN MASONRY GALLERY -->
+  <main class="gallery-wrapper">
+    <div class="gallery-grid" id="gallery-section">
+      
+      <div class="gallery-item item-tall" data-category="nature">
+        <div class="item-inner">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200" alt="Golden Forest">
+          <div class="item-overlay">
+            <span class="category-tag">Nature</span>
+            <h3>Golden Forest</h3>
+            <p>Depth and volumetric sun rays tracking through deep organic canopies.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="travel">
+        <div class="item-inner">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200" alt="Ocean Journey">
+          <div class="item-overlay">
+            <span class="category-tag">Travel</span>
+            <h3>Ocean Journey</h3>
+            <p>High-exposure seaside landscapes capturing minimalist horizons.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item item-wide" data-category="city">
+        <div class="item-inner">
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200" alt="Night Lights">
+          <div class="item-overlay">
+            <span class="category-tag">City</span>
+            <h3>Night Lights</h3>
+            <p>Cyberpunk-tinted long exposures mapping dynamic metropolitan transit tracks.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="art">
+        <div class="item-inner">
+          <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=1200" alt="Creative Mood">
+          <div class="item-overlay">
+            <span class="category-tag">Artistic</span>
+            <h3>Creative Mood</h3>
+            <p>Surreal abstract pigments focusing heavily on modern internal oil states.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- WINDOW VIEW PREVIEW MODAL -->
+  <div class="custom-modal" id="image-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-wrapper image-view-wrapper">
+      <button class="modal-close-btn">&times;</button>
+      <div class="image-view-body">
+        <img id="modal-image" src="" alt="Focus Render">
+        <div class="image-view-meta">
+          <h2 id="modal-title">Mock Title</h2>
+          <p id="modal-description">Mock Subtitle Description Metadata</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD CREATOR MODAL -->
+  <div class="custom-modal" id="upload-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-wrapper form-wrapper">
+      <button class="modal-close-btn">&times;</button>
+      <div class="form-body">
+        <h3>Publish Artwork</h3>
+        <p class="form-sub">Append assets directly into the dynamic layout cluster.</p>
+        
+        <div class="dropzone-area" id="dropzone">
+          <i class="fa-solid fa-cube dropzone-icon"></i>
+          <p class="drop-text">Drag file here or <span class="highlight">Browse Assets</span></p>
+          <input type="file" id="upload-input" accept="image/*" hidden>
+        </div>
+
+        <div class="input-container">
+          <input type="text" id="image-title" required placeholder=" ">
+          <label>Project Title</label>
+        </div>
+
+        <div class="input-container">
+          <textarea id="image-description" required placeholder=" "></textarea>
+          <label>Visual Description Data</label>
+        </div>
+
+        <div class="input-container">
+          <input type="text" id="image-category" required placeholder=" ">
+          <label>Classification Category</label>
+        </div>
+
+        <button class="action-btn full-width-btn" id="submit-upload-btn">Inject Asset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THEATRE VIDEO MODAL -->
+  <div class="custom-modal" id="video-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-wrapper video-wrapper">
+      <button class="modal-close-btn">&times;</button>
+      <div class="video-container">
+        <video id="preview-video" controls>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
